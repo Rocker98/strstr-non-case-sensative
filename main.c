@@ -46,6 +46,12 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
+	if(strlen(first)!=strlen(second))
+	
+	{
+		puts("Not identical");
+		return 0;
+	}
 	
 	if((strstr(first,second))==0&&(!caseSensetive||(!trig)))	
 	puts("Not identical");
