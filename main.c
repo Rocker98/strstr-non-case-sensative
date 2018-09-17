@@ -7,17 +7,30 @@
 #define MAX 5
 
 
+bool ownStrStr(char *str1,char *str2);
 
 int main(int argc, char *argv[])
 {
 	char first[MAX],second[MAX];
-	bool caseSensetive=0;
-	bool trig=1;
+
 
 	puts("Enter the string");
-	scanf("%5s",&first);
+	scanf("%5s",&first);		//change array lenght HERE!!!
 	puts("Enter the string");
-	scanf("%5s",&second);	
+	scanf("%5s",&second);		//and HERE!
+	
+	if(ownStrStr(first,second))
+	puts("They are same");
+	else
+	puts("Not identical");
+	
+	return 0;
+}
+
+bool ownStrStr(char *first,char *second)
+{	
+	bool caseSensetive=0;
+	bool trig=1;
 	int i;
 	for(i=0;i<MAX;i++)
 	{
@@ -47,18 +60,10 @@ int main(int argc, char *argv[])
 		}
 	}
 	if(strlen(first)!=strlen(second))
-	
-	{
-		puts("Not identical");
-		return 0;
-	}
+	return 0;
 	
 	if((strstr(first,second))==0&&(!caseSensetive||(!trig)))	
-	puts("Not identical");
-	else if(strstr(first,second)||caseSensetive&&trig)
-	puts("They are same");
-
-	
-
 	return 0;
+	else if(strstr(first,second)||caseSensetive&&trig)
+	return 1;
 }
